@@ -26,7 +26,7 @@ angular.module('common.github',[])
                 return user;
             }
         };
-    });
+    }); 
 
 
 
