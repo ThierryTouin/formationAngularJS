@@ -1,0 +1,19 @@
+<h3>Start Your Project !</h3>
+
+<p ng-if="home.instructionsAreDisplayed()">{{ home.instructions }}</p>
+
+<p><input type="text" ng-model="home.user.name"></p>
+
+<p id="greetings" ng-if="home.greetingsAreDisplayed()">Welcome, {{ home.user.name }}</p>
+
+
+
+================================
+
+<section>
+    <input type="text" ng-model="home.user.name" placeholder="enter a github account username 3 char at least" />
+    <button ng-click="home.githubQuery(github)">Find GitHub user info</button>{{message}}
+    <br>
+    <img ng-src="{{user.avatar_url}}" alt="" width="50px" />{{ user.login }}
+    <div ng-repeat="(key, value) in user">{{ key }} : {{ value }}</div>
+</section>
