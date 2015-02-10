@@ -3,23 +3,21 @@
  */
 angular.module('common.github',[])
 
-    .factory('github',function(){
+    .factory('github',function($http, $q){
 
         var self = this;
+        var userInfo;
 
         return {
-            getUserData: function($http, $q) {
-
-            var userInfo;
-
-            return {
-                getUserData: function(name) {
-                    var defer = $q.defer();
+            getUserData: function(name) {
 
 
-                    $http({
-                        method: 'JSONP',
-                        url: 'https://api.github.com/users/' + github.username + '?callback=JSON_CALLBACK'
+                var defer = $q.defer();
+
+
+                $http({
+                     method: 'JSONP',
+                        url: 'https://api.github.com/users/' + name + '?callback=JSON_CALLBACK'
                     }).success(function (response) {
                         console.log(response);
                         if (!response.data.message) {
@@ -34,20 +32,20 @@ angular.module('common.github',[])
                         defer.reject(err);
                     });
                     return defer.promise;
-                },
-                getInfo : function() {
-                    if (userInfo)    {
-                        return userInfo;
-                    } else {
-                        throw new Error('userInfo is not defined');
-                    }
 
+
+                },
+            getInfo : function() {
+                if (userInfo)    {
+                    return userInfo;
+                } else {
+                    throw new Error('userInfo is not defined');
                 }
-            };
 
             }
-
         };
+
+
     }); 
 
 
