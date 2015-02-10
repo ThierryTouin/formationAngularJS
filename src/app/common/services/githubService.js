@@ -4,27 +4,49 @@
 angular.module('common.github',[])
 
     .factory('github',function(){
-        var user;
+
+        var self = this;
 
         return {
-            getUserData: function(username) {
-                if (username.length > 2) {
+            getUserData: function($http, $q) {
+
+            var userInfo;
+
+            return {
+                getUserData: function(name) {
+                    var defer = $q.defer();
+
+
                     $http({
                         method: 'JSONP',
                         url: 'https://api.github.com/users/' + github.username + '?callback=JSON_CALLBACK'
                     }).success(function (response) {
                         console.log(response);
-                        user = response.data;
+                        if (!response.data.message) {
+                            userInfo = response.data;
+                            defer.resolve(userInfo);
+                        } else {
+                            defer.reject(response.data);
+                        }
+
                     }).error(function (err) {
                         console.log(err);
+                        defer.reject(err);
                     });
-                } else {
-                    message = "username too short 3 char at least !!!";
+                    return defer.promise;
+                },
+                getInfo : function() {
+                    if (userInfo)    {
+                        return userInfo;
+                    } else {
+                        throw new Error('userInfo is not defined');
+                    }
+
                 }
-            },
-            getUser: function() {
-                return user;
+            };
+
             }
+
         };
     }); 
 

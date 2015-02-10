@@ -11,7 +11,10 @@ angular.module('home', [
         });
     })
 
-    .controller('HomeController', function () {
+    .controller('HomeController', function (github) {
+
+        var self = this;
+
         this.instructions = 'Enter your name';
         this.user = {
             name: ''
@@ -22,7 +25,15 @@ angular.module('home', [
         this.greetingsAreDisplayed = function () {
             return this.user.name.length > 0;
         };
-        this.githubQuery = function () {
-            return this.getUserData(this.user.name);
+        this.getGitHubInfo = function (name) {
+            github
+                .getUserData(name)
+                .then(function(userInfo) {
+                    self.userInfo = userInfo;
+                })
+                .catch(function(err) {
+                    console.log(err);
+                });
+
         };
     });
