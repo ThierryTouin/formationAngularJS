@@ -3,7 +3,8 @@ angular.module('app', [
     'home',
     'restangular',
     'listAssessment',
-    'createAssessment'
+    'createAssessment',
+    'ng-messages'
 ])
 
     .config(function ($urlRouterProvider, $locationProvider) {
