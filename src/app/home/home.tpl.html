@@ -12,6 +12,7 @@
     <input type="text" ng-model="home.user.name" placeholder="enter a github account username 3 char at least" />
     <button ng-click="home.getGitHubInfo(home.user.name)">Find GitHub user info</button>{{message}}
     <br>
-    <img ng-src="{{user.avatar_url}}" alt="" width="50px" />{{ user.login }}
-    <div ng-repeat="(key, value) in user">{{ key }} : {{ value }}</div>
+    <img ng-src="{{home.userInfo.avatar_url}}" alt="" width="50px" />{{ home.userInfo.login }}
+    <div ng-repeat="(key, value) in home.userInfo">{{ key }} : {{ value }}</div>
+    <p ng-if="home.error">{{ home.error.message }}</p>
 </section>

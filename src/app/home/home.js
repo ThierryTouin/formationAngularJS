@@ -32,6 +32,7 @@ angular.module('home', [
                     self.userInfo = userInfo;
                 })
                 .catch(function(err) {
+                    self.error = err;
                     console.log(err);
                 });
 

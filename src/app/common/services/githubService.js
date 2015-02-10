@@ -19,7 +19,7 @@ angular.module('common.github',[])
                      method: 'JSONP',
                         url: 'https://api.github.com/users/' + name + '?callback=JSON_CALLBACK'
                     }).success(function (response) {
-                        console.log(response);
+                        console.log(response.data);
                         if (!response.data.message) {
                             userInfo = response.data;
                             defer.resolve(userInfo);
