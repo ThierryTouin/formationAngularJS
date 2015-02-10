@@ -1,6 +1,9 @@
 angular.module('app', [
     'ui.router',
-    'home'
+    'home',
+    'restangular',
+    'listAssessment',
+    'createAssessment'
 ])
 
     .config(function ($urlRouterProvider, $locationProvider) {

@@ -12,7 +12,7 @@ angular.module('home', [
     })
 
     .controller('HomeController', function (github) {
-
+        console.log('in HomeController');
         var self = this;
 
         this.instructions = 'Enter your name';
