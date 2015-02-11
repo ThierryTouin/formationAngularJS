@@ -1,4 +1,12 @@
+<a ui-sref="start">Home</a>
+
 <h3>Create product</h3>
+
+<collapse-button>
+    <span>click me</span>
+</collapse-button>
+
+<collapse-card>
 
 
 <form name="createAssessmentForm" ng-submit="createAssessment.formSubmit()" novalidate>
@@ -9,20 +17,6 @@
         <input type="text" ng-model="createAssessment.assessment.startCode" name="startCode" placeholder="startCode" ng-required="true" />
         <input type="text" ng-model="createAssessment.assessment.instructions" name="instructions" placeholder="instructions" ng-required="true" />
 
-<!--
-        <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.title" name="title" placeholder="title" ng-required="true" />
-        <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.startCode" name="startCode" placeholder="startCode" ng-required="true" />
-        <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.instructions" name="instructions" placeholder="instructions" ng-required="true" />
--->
-
-<!--        <div ng-messages="createAssessmentForm.title.$error">
-            <div ng-message="required" ng-if="!createAssessmentForm.$pristine">
-                title is required
-            </div>
-            <div ng-message="pattern">
-                title must contain only letters or number
-            </div>
-        </div>-->
     </div>
 
     <div>
@@ -30,14 +24,16 @@
         <button type="submit" >Register without valid</button>
     </div>
 </form>
-
+<br/>
+==============
+<br/>
 <form name="createAssessmentForm2" ng-submit="createAssessment.formSubmit()" novalidate>
     <div>
 
 
                 <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.title" name="title" placeholder="title" ng-required="true" />
-                <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.startCode" name="startCode" placeholder="startCode" ng-required="true" />
-                <input type="text" ng-pattern="/^[a-zA-Z0-9]$/" ng-model="createAssessment.assessment.instructions" name="instructions" placeholder="instructions" ng-required="true" />
+                <input type="text" ng-model="createAssessment.assessment.startCode" name="startCode" placeholder="startCode" ng-required="true" />
+                <input type="text" ng-model="createAssessment.assessment.instructions" name="instructions" placeholder="instructions" ng-required="true" />
 
                 <div ng-messages="createAssessmentForm2.title.$error">
                     <div ng-message="required" ng-if="!createAssessmentForm.$pristine">
@@ -55,5 +51,6 @@
     </div>
 </form>
 
+</collapse-card>
 
 
